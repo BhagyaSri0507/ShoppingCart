@@ -1,0 +1,206 @@
+body {
+  font-family: "Dosis", serif;
+}
+
+@mixin custom-btn {
+  background-color: #be2957;
+  color: white;
+  border: none;
+  padding: 7px;
+  text-transform: capitalize;
+}
+@mixin flex-basic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// headerr styles
+.header-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 8px 6px -6px #d3cece;
+  .logo-img {
+    padding: 10px;
+  }
+  .nav-links {
+    font-size: 18px;
+    text-decoration: none;
+    color: grey;
+    font-weight: 800;
+    padding-right: 15px;
+    &.active {
+      color: #51dae2;
+    }
+  }
+}
+//banner
+.home-page {
+  margin: 20px 70px;
+  .banner-section {
+    box-shadow: 0 8px 6px -6px #d3cece;
+    .carousel-indicators button {
+      opacity: 1;
+      background-color: black;
+      &.active {
+        background-color: grey;
+      }
+    }
+  }
+  .category-item {
+    margin: 20px 0;
+    box-shadow: 0 8px 6px -6px #d3cece;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    .details-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      .cls-name {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .cls-desc {
+        font-size: 15px;
+      }
+      .category-btn {
+        @include custom-btn;
+      }
+    }
+  }
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 100%;
+  margin: auto;
+}
+//products-page
+.page-wrapper {
+  display: flex;
+  .sidebar {
+    background: rgb(5, 68, 104);
+    height: calc(100vh - 106px);
+    overflow: auto;
+    min-width: 250px;
+    ul {
+      padding: 0;
+    }
+    li {
+      display: block;
+      padding: 13px 30px;
+      border-bottom: 1px solid #10558d;
+      color: rgb(241, 237, 237);
+      font-size: 16px;
+      position: relative;
+      cursor: pointer;
+      &.active {
+        background: skyblue;
+        color: #10558d;
+        font-weight: 600;
+      }
+    }
+  }
+  .content {
+    .items-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+      .product-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-right: 10px;
+        margin-top: 20px;
+        padding: 30px;
+        width: 250px;
+        .product-name {
+          font-weight: 900;
+        }
+        .product-img img {
+          width: 200px;
+          margin-top: 10px;
+        }
+        .product-desc {
+          padding: 5px;
+          background-color: #f6f3f3;
+          font-size: 12px;
+          margin: 10px 0;
+        }
+        .product-btn {
+          @include custom-btn;
+        }
+        .add-item {
+          @include flex-basic;
+        }
+      }
+    }
+  }
+}
+//cart styles
+.cart-modal {
+  .item-details {
+    display: flex;
+  }
+  .txtQuantity {
+    width: 30px;
+    margin: 10px 15px;
+    width: 30px;
+  }
+  .wrap-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .quantity-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    flex-grow: 1;
+  }
+  .btnRemove {
+    background: #fbe5c9;
+    border: 1.5px solid red;
+    border-radius: 5px;
+    line-height: 2rem;
+    font-weight: bold;
+  }
+
+  .btn-decrement,
+  .btn-increment {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(#fff, #f9f9f9);
+    display: inline-block;
+    border: 1px solid #c2c2c2;
+    font-size: 16px;
+    border-radius: 50%;
+    padding-top: 1px;
+    line-height: 1;
+
+    &:disabled {
+      color: #c2c2c2;
+      border-color: #e0e0e0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.alert-block {
+  position: absolute;
+  background: #87cdeb;
+  z-index: 99;
+  padding: 6px;
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
+}
